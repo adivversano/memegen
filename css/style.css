@@ -1,0 +1,566 @@
+* {
+    box-sizing: border-box;
+}
+
+/* TYPOGRAPHY */
+
+@font-face {
+    font-family: montserrat-regular;
+    src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: montesrrat-medium;
+    src: url(../fonts/Montserrat-Medium.ttf);
+}
+
+/* BASE */
+
+html {
+    font-family: montserrat-regular, sans-serif;
+    color: #fff;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 1.875rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+input {
+    outline: unset;
+}
+
+* [type="color"] {
+    -webkit-appearance: none;
+    padding: 0;
+    border: none;
+    width: 20px;
+    height: 20px;
+}
+
+* [type="color"]::-webkit-color-swatch {
+    border: none;
+    padding: 0;
+}
+
+* [type="color"]::-webkit-color-swatch-wrapper {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 0;
+}
+
+/* LAYOUT */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-container {
+    padding: 10px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* COMPONENTS */
+
+/* HEADER */
+
+header {
+    z-index: 15;
+    background-color: #ff7f00;
+    width: 100%;
+}
+
+.header-content {
+    height: 65px;
+    align-items: center;
+}
+
+.logo {
+    background: url(../img/ui/logo.png) no-repeat center center;
+    width: 133px;
+    height: 22px;
+}
+
+/* nav */
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translateY(-100%);
+    z-index: 15;
+    opacity: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: .3s;
+}
+
+.main-nav a {
+    padding: 5px 20px;
+}
+
+.main-nav a:hover {
+    color: #040a2c;
+}
+
+body.menu-open .main-nav {
+    background-color: #ff7f00;
+    transform: translateY(74%);
+    opacity: 1;
+}
+
+/* hamburger */
+
+.hamburger {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+}
+
+.hamburger-box {
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    width: 40px;
+}
+
+/* MAIN */
+
+main {
+    position: relative;
+}
+
+.main-content-screen {
+    z-index: 5;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #0000007a;
+    cursor: pointer;
+}
+
+/* meme-editor */
+
+.editor-container {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #e3e3e3;
+    box-shadow: 0px 1px 3px #00000070;
+}
+
+.meme-editor {
+    align-items: center;
+    flex-direction: column;
+    padding-block-start: 25px;
+}
+
+.canvas-container {
+    max-width: 550px;
+    margin-bottom: 1%;
+}
+
+canvas {
+    /* border: 1px solid black; */
+}
+
+.control-box {
+    display: grid;
+    width: 100%;
+    max-width: 500px;
+    grid-gap: 10px;
+    /* grid-template-columns: repeat(5, minmax(1fr, 60px));
+    grid-template-rows: repeat(7, minmax(1fr, 60px)); */
+    grid-template-areas: "text text text text text" ". switch add delete ." ". . . . ." "fontplus fontminus alignleft aligncenter alignright" "fontarea fontarea fontarea strokewidth color" ". download download save .";
+    justify-items: center;
+}
+
+.control-box input {
+    width: 100%;
+    height: 40px;
+    grid-area: text;
+    font-family: montserrat-regular, sans-serif;
+    font-size: 1.25rem;
+    border: 0;
+    border-radius: 10px;
+}
+
+.switch-btn {
+    grid-area: switch;
+    background: url(../img/ui/switch-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.add-btn {
+    grid-area: add;
+    background: url(../img/ui/add-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.delete-btn {
+    grid-area: delete;
+    background: url(../img/ui/delete-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.increase-btn {
+    grid-area: fontplus;
+    background: url(../img/ui/increase-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.decrease-btn {
+    grid-area: fontminus;
+    background: url(../img/ui/decrease-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.align-left-btn {
+    grid-area: alignleft;
+    background: url(../img/ui/align-left-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.align-center-btn {
+    grid-area: aligncenter;
+    background: url(../img/ui/align-center-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.align-right-btn {
+    grid-area: alignright;
+    background: url(../img/ui/align-right-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.font-select {
+    grid-area: fontarea;
+    font-family: montserrat-regular;
+    font-size: 1.25rem;
+    width: 100%;
+    height: 40px;
+    outline: unset;
+    border: unset;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.stroke-width-btn {
+    grid-area: strokewidth;
+    background: url(../img/ui/stroke-width-button.png) no-repeat center center;
+    background-size: 66%;
+}
+
+.stroke-container {
+    position: relative;
+    display: none;
+    bottom: 75%;
+    right: 50%;
+    height: 10px;
+    width: 100px;
+}
+
+.stroke-container.show {
+    display: block;
+}
+
+.stroke-container input {
+    width: 70%;
+    height: 100%;
+}
+
+.color-btn {
+    grid-area: color;
+    background: url(../img/ui/color-button.png) no-repeat center center;
+    background-size: 66%;
+    position: relative;
+}
+
+.color-container {
+    position: absolute;
+    display: none;
+    gap: 1px;
+    bottom: 105%;
+    right: 21%;
+    height: 19px;
+    width: 39px;
+}
+
+.color-container.show {
+    display: flex;
+}
+
+.color-container input {
+    width: 100%;
+    height: 100%;
+}
+
+.download-btn {
+    font-family: montesrrat-medium;
+    font-size: 1em;
+    color: #fff;
+    grid-area: download;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: box-shadow .1s;
+    background-color: #ff7f00;
+}
+
+.download-btn:hover {
+    box-shadow: 0 0 2px 1px #0000002d;
+}
+
+.download-btn:active {
+    background-color: #ff7f00;
+    box-shadow: inset 0 0 20px #0000002e;
+}
+
+.save-btn {
+    background: url(../img/ui/save-button.svg) no-repeat center center;
+    background-size: 56%;
+    font-family: montesrrat-medium;
+    font-size: 1em;
+    /* color: #fff; */
+    grid-area: save;
+    background-color: #ff7f00;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: box-shadow .1s;
+}
+
+.save-btn:hover {
+    box-shadow: 0 0 2px 1px #0000002d;
+}
+
+.save-btn:active {
+    background-color: #ff7f00;
+    box-shadow: inset 0 0 20px #0000002e;
+}
+
+/* search-bar */
+
+.search-bar {
+    height: 100px;
+}
+
+.search-input {
+    border: unset;
+    font-size: 1rem;
+    height: 1.875em;
+    box-shadow: inset 0 -2px 0 #040a2c;
+}
+
+.search-input::placeholder {
+    font-weight: bold;
+}
+
+.search-input-container {
+    position: relative;
+}
+
+.search-input-container::after {
+    position: absolute;
+    top: 0.4em;
+    right: 0.2em;
+    background-image: url('../img/ui/search-icon.png');
+    background-size: 1em 1em;
+    width: 1em;
+    height: 1em;
+    content: "";
+}
+
+.keywords {
+    color: black;
+}
+
+/* meme-gallery */
+
+.gallery-wrapper {
+    background-color: #e3e3e3;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px
+}
+
+.gallery-container>img {
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #ff7f00;
+}
+
+.footer-content {
+    flex-direction: column;
+    padding: 70px 0;
+}
+
+.footer-content>*:first-child {
+    margin-bottom: 25px;
+}
+
+/* HELPERS */
+
+/* base helpers */
+
+.btn {
+    outline: unset;
+    border: unset;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: box-shadow .1s, background-color .2s;
+}
+
+.btn:hover {
+    background-color: #ff7f00;
+    box-shadow: 0 0 2px 1px #0000002d
+}
+
+.btn:active {
+    background-color: #ff7f00;
+    box-shadow: inset 0 0 20px #0000002e;
+}
+
+/* flex helpers */
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+@media (min-width: 770px) {
+    /* COMPONENTS */
+    /* HEADER */
+    header {
+        z-index: unset;
+    }
+    /* nav */
+    .main-nav {
+        flex-direction: row;
+        position: unset;
+        transform: unset;
+        z-index: unset;
+        opacity: unset;
+        width: unset;
+        top: unset;
+        left: unset;
+    }
+    .main-nav>*:not(:last-child) {
+        border-right: 1px solid #8a8a8a;
+        /* padding: 0 10px; */
+        padding: 10px;
+    }
+    .main-nav a {
+        padding: 10px 0;
+        padding-inline-start: 10px;
+        position: relative;
+    }
+    body.menu-open .main-nav {
+        transform: unset;
+        opacity: unset;
+    }
+    .hamburger {
+        display: none;
+    }
+    /* MAIN *
+    /* meme-editor */
+    .meme-editor {
+        align-items: unset;
+        flex-direction: unset;
+    }
+    .canvas-container {
+        margin-inline-end: 2%
+    }
+    .control-box {
+        align-items: center;
+        width: 50%;
+    }
+    .download-btn {
+        height: 60px;
+        line-height: 60px;
+    }
+    .save-btn {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+    .control-box input[type="text"] {
+        height: 60px;
+    }
+    .font-select {
+        height: 60px;
+        line-height: 60px;
+    }
+    /* HELPERS */
+    /* base helpers */
+    .btn {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 1000px) {
+    /* LAYOUT */
+    .content-container {
+        padding: 30px;
+    }
+    /* MAIN *
+    /* meme-editor */
+    .canvas-container {
+        max-width: 60%;
+    }
+}

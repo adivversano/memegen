@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>memegen</title>
+
+    <link rel="stylesheet" href="css/styles/hamburger-anim.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="container">
+        <div class="header-content content-container flex space-between">
+            <div class="logo"></div>
+            <nav class="main-nav">
+                <a href="#gallery" onclick="onGallery()">Gallery</a>
+                <a href="">Memes</a>
+                <a href="">About</a>
+            </nav>
+            <button class="hamburger hamburger--squeeze" type="button" onclick="onToggleMenu()">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-content-screen container" onclick="onCloseMemeEditor()" hidden></div>
+
+        <div class="editor-container container" hidden>
+            <div class="meme-editor flex content-container space-between">
+                <div class="canvas-container">
+                    <!-- onmousedown="onDown(event)" onmousemove="onMove(event)" onmouseup="onUp(event) -->
+                    <canvas class="main-canvas" width="400" height="400">
+                        Update your browser to enjoy canvas!
+                    </canvas>
+                </div>
+                <div class="control-box">
+                    <input type="text" name="txt-input" placeholder="Top Text">
+                    <button class="btn switch-btn"></button>
+                    <button class="btn add-btn"></button>
+                    <button class="btn delete-btn"></button>
+                    <button class="btn increase-btn"></button>
+                    <button class="btn decrease-btn"></button>
+                    <button class="btn align-left-btn"></button>
+                    <button class="btn align-center-btn"></button>
+                    <button class="btn align-right-btn"></button>
+                    <button class="btn stroke-width-btn">
+                        <div class="stroke-container">
+                            <input type="range" name="stroke-val" min="1" max="10" value="2">
+                            <span></span>
+                        </div>
+                    </button>
+                    <button class="btn color-btn">
+                        <div class="color-container">
+                            <input class="stroke-color" type="color">
+                                <input class="fill-color" type="color" value="#ffffff">
+                        </div>
+                    </button>
+                    <select class="font-select" name="" id="">
+                        <option value="impact">Impact</option>
+                        <option value="impact">Impact</option>
+                        <option value="impact">Impact</option>
+                        <option value="impact">Impact</option>
+                    </select>
+                    <a class="download-btn" download="meme.png">Download</a>
+                    <a class="save-btn"></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <section class="search-bar content-container flex space-between align-center">
+            <div class="search-input-container">
+                <input class="search-input" maxlength="20" oninput="onFilterBy(this.value)" type="text"
+                    placeholder="Enter search keyword">
+            </div>
+            <div class="keywords"></div>
+        </section>
+
+        <div class="gallery-wrapper container">
+            <section class="gallery-container content-container" id="gallery">
+            </section>
+        </div>
+    </main>
+
+    <footer class="container">
+        <div class="footer-content flex align-center">
+            <div class="logo"></div>
+            <small>copyrights 2019</small>
+        </div>
+    </footer>
+
+
+    <script src="js/services/util-service.js"></script>
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
