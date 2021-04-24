@@ -31,6 +31,8 @@ function addControlBoxListeners() {
     document.querySelector('.stroke-color').addEventListener('input', onSetStrokeColor);
     document.querySelector('.fill-color').addEventListener('input', onSetFillColor);
     
+
+    document.querySelector('.font-select').addEventListener('change', onSetFont);
     document.querySelector('.download-btn').addEventListener('click', onDownloadMeme);
     document.querySelector('.save-btn').addEventListener('click', onSaveMeme);
     // document.querySelector('.share-btn').addEventListener('click', onShareMeme);

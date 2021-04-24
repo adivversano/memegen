@@ -1,36 +1,9 @@
 'use strict';
 
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    strokeWidth: 2,
-    lines: [
-        {
-            txt: 'Top Text',
-            // x: -1,
-            // y: -1,
-            size: 60,
-            align: 'center',
-            fillColor: '#ffffff',
-            strokeColor: '#000000',
-            isDragging: false
-        },
-        {
-            txt: 'Bottom Text',
-            // x: -1,
-            // y: -1,
-            size: 60,
-            align: 'center',
-            fillColor: '#ffffff',
-            strokeColor: '#000000',
-            isDragging: false
-        }
-    ],
-}
+var gMeme;
 var gSavedMemes = [];
 
 function setLinesCoordsToImgRatio(canvas) {
-    // if (gMeme.lines[1]) return;
     gMeme.lines[0].x = canvas.width / 2;
     gMeme.lines[0].y = canvas.height * 0.2;
     gMeme.lines[1].x = canvas.width / 2;
@@ -47,14 +20,12 @@ function getMeme() {
 
 function resetMeme() {
     gMeme = {
-        selectedImgId: 0,
+        selectedImgId: 5,
         selectedLineIdx: 0,
         strokeWidth: 2,
         lines: [
             {
                 txt: 'Top Text',
-                // x: -1,
-                // y: -1,
                 size: 60,
                 align: 'center',
                 fillColor: '#ffffff',
@@ -63,8 +34,6 @@ function resetMeme() {
             },
             {
                 txt: 'Bottom Text',
-                // x: -1,
-                // y: -1,
                 size: 60,
                 align: 'center',
                 fillColor: '#ffffff',
@@ -72,6 +41,7 @@ function resetMeme() {
                 isDragging: false
             }
         ],
+        fontStyle: 'Impact'
     }
 }
 
@@ -81,6 +51,10 @@ function setSelectedImg(imgId) {
 
 
 //**** CONTROL-BOX ****//
+
+function setFont(fontStyle) {
+    gMeme.fontStyle = fontStyle;
+}
 
 function setStrokeWidth(strokeWidth) {
     gMeme.strokeWidth = strokeWidth;

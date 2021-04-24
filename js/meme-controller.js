@@ -68,12 +68,13 @@ function renderTextLines() {
             line.fillColor,
             line.size,
             line.align,
-            meme.strokeWidth);
+            meme.strokeWidth,
+            meme.fontStyle);
     })
 }
 
 function _drawText(
-    txt, x = gCanvas.width / 2, y, strokeColor, fillColor, fontSize, textAlign, strokeWidth) {
+    txt, x = gCanvas.width / 2, y, strokeColor, fillColor, fontSize, textAlign, strokeWidth, fontStyle) {
 
     if (textAlign === 'right') textAlign = 'left';
     else if (textAlign === 'left') textAlign = 'right';
@@ -81,7 +82,7 @@ function _drawText(
     gCtx.strokeStyle = strokeColor;
     gCtx.fillStyle = fillColor;
     gCtx.lineWidth = strokeWidth;
-    gCtx.font = `${fontSize}px Impact`;
+    gCtx.font = `${fontSize}px ${fontStyle}`;
     gCtx.textAlign = textAlign;
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
@@ -94,10 +95,10 @@ function _drawLineFocusRect() {
     gCtx.beginPath();
     gCtx.fillStyle = 'rgba(255,255,255,0.4)'
     gCtx.fillRect(
-        (currLine.x - txtWidth / 2) - 5,
+        (currLine.x - txtWidth / 2) - 15,
         currLine.y - currLine.size,
-        txtWidth + 10,
-        currLine.size + 10)
+        txtWidth + 30,
+        currLine.size + 20)
     gCtx.closePath()
 }
 
@@ -111,6 +112,12 @@ function onSaveMeme() {
 function onDownloadMeme(ev) {
     const data = gCanvas.toDataURL();
     ev.path[0].href = data;
+}
+
+function onSetFont(ev) {
+    const fontStyle = ev.target.value;
+    setFont(fontStyle);
+    renderCanvas();
 }
 
 function onSetStrokeWidth() {
