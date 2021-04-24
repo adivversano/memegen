@@ -90,7 +90,7 @@ function _drawText(
 
 function _drawLineFocusRect() {
     const currLine = getMeme().lines[getMeme().selectedLineIdx]
-    gCtx.font = `${currLine.size}px Impact`;
+    gCtx.font = `${currLine.size}px ${getMeme().fontStyle}`;
     const txtWidth = gCtx.measureText(`${currLine.txt}`).width;
     gCtx.beginPath();
     gCtx.fillStyle = 'rgba(255,255,255,0.4)'
