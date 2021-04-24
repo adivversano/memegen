@@ -115,7 +115,6 @@ function deleteTextLine() {
 
 function addTextLine(txt) {
     //if usertxt is empty write :extra text
-    debugger
     txt = (txt === '') ? 'Extra Text' : txt;
     gMeme.lines.push({
         txt,

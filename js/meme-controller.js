@@ -12,7 +12,6 @@ function onLoadCanvas() {
 }
 
 function renderCanvas() {
-    // debugger
     const img = getImgById(getMeme().selectedImgId);
     const imgCanvas = new Image();
 
@@ -26,7 +25,7 @@ function renderCanvas() {
         fitImgToCanvas(imgCanvas);
         if (gIsFirstRender) {
             setLinesCoordsToImgRatio(gCanvas)
-            gIsFirstRender = false
+            gIsFirstRender = false;
         }
         renderTextLines();
     }
@@ -148,12 +147,14 @@ function onDrawUserText(ev) {
 
 
 function onSetStrokeColor(ev) {
+    if (isLinesEmpty()) return;
     const strokeColor = ev.target.value;
     setStrokeColor(strokeColor);
     renderCanvas();
 }
 
 function onSetFillColor(ev) {
+    if (isLinesEmpty()) return;
     const fillColor = ev.target.value;
     setFillColor(fillColor);
     renderCanvas();
@@ -181,7 +182,6 @@ function onAddTextLine() {
 
 
 function onDeleteTextLine() {
-
     deleteTextLine();
     onSwitchTextFocus();
     renderCanvas();
@@ -204,16 +204,19 @@ function onDecreaseFontSize() {
 }
 
 function onAlignTextLeft() {
+    if (isLinesEmpty()) return;
     alignTextLeft();
     renderCanvas();
 }
 
 function onAlignTextCenter() {
+    if (isLinesEmpty()) return;
     alignTextCenter();
     renderCanvas();
 }
 
 function onAlignTextRight() {
+    if (isLinesEmpty()) return;
     alignTextRight();
     renderCanvas();
 }

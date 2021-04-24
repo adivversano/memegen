@@ -192,10 +192,6 @@ main {
     margin-bottom: 1%;
 }
 
-canvas {
-    /* border: 1px solid black; */
-}
-
 .control-box {
     display: grid;
     width: 100%;
