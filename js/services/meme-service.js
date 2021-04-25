@@ -52,6 +52,13 @@ function setSelectedImg(imgId) {
 
 //**** CONTROL-BOX ****//
 
+function saveMeme() {
+    gSavedMemes.push(
+        JSON.parse(JSON.stringify(gMeme))
+    );
+
+}
+
 function setFont(fontStyle) {
     gMeme.fontStyle = fontStyle;
 }

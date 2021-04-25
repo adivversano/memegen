@@ -13,7 +13,6 @@ function addEventListeners() {
 }
 
 function addControlBoxListeners() {
-    // debugger
     document.querySelector('[name="txt-input"]').addEventListener('input', onDrawUserText);
     document.querySelector('.switch-btn').addEventListener('click', onSwitchTextFocus);
     document.querySelector('.add-btn').addEventListener('click', onAddTextLine);

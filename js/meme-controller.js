@@ -106,7 +106,7 @@ function _drawLineFocusRect() {
 
 
 function onSaveMeme() {
-
+    saveMeme();
 }
 
 function onDownloadMeme(ev) {
